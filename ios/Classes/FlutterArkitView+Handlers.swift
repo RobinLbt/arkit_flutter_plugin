@@ -227,7 +227,7 @@ extension FlutterArkitView {
 
      func onCameraTransform(_ result:FlutterResult){
         if let frame = sceneView.session.currentFrame {
-            let res = serializeArray(frame.camera.transform)
+            let res = serializeArray(frame.camera.transform.columns.3)
             result(res)
         } else {
             result(nil)
