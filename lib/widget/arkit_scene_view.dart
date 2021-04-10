@@ -289,6 +289,7 @@ class ARKitController {
 
   static const _boolConverter = ValueNotifierConverter();
   static const _vector3Converter = Vector3Converter();
+  static const _vector4Converter = Vector4Converter();
   static const _matrixValueNotifierConverter = MatrixValueNotifierConverter();
   static const _matrixConverter = MatrixConverter();
   static const _materialsConverter = ListMaterialsValueNotifierConverter();
@@ -695,9 +696,9 @@ class ARKitController {
     return vector3;
   }
 
-  Future<Vector3> getCameraTransform() async {
+  Future<Vector4> getCameraTransform() async {
     final result = await _channel.invokeListMethod('cameraTransform');
-    final vector3 = _vector3Converter.fromJson(result);
-    return vector3;
+    final vector4 = _vector4Converter.fromJson(result);
+    return vector4;
   }
 }
